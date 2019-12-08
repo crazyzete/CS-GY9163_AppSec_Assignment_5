@@ -1,3 +1,14 @@
+/**
+ * mrh583 - Commenting this out. The app does not require an SMS Receiver. I was able to enable
+ * the SMS Receive permission in Android Studio emulator and verify through breakpoint that this
+ * class does get invoked. What it does (if a user grants SMS permission) is it receives each
+ * SMS that the phone receives and calls the /metric resource on the web service, passing it
+ * the SMS message content. This is essentially a form of data exfiltration. As a malicious app,
+ * once it is granted permission to receive SMS, it ships off all the received SMS content over
+ * the web. There is no further user indication that their SMS traffic is being captured and
+ * exfiltrated.
+ */
+/**
 package edu.nyu.appsec.assignment5;
 
 import android.content.BroadcastReceiver;
@@ -17,6 +28,7 @@ public class SMSReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
         Bundle bundle = intent.getExtras();
         String strMessage = "";
         String format = bundle.getString("format");
@@ -47,5 +59,8 @@ public class SMSReceiver extends BroadcastReceiver {
                 e.printStackTrace();
             }
         }
+
     }
+
 }
+*/

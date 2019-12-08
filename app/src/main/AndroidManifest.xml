@@ -3,6 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.nyu.appsec.assignment5">
 
+    <!-- mrh583 - only permission this app needs -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- mrh583 - Comment out all permissions below. INTERNET permission is only
+    permission the app needs. Determined this by commenting everything out and
+    adding back INTERNET based on error to get app to work. no other permission
+    was needed for the app to be functional
+    -->
+<!--
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -39,7 +48,7 @@
     <uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
-    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.ACCESS_ALL_DOWNLOADS" />
     <uses-permission android:name="android.permission.ACCESS_BLUETOOTH_SHARE" />
     <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
@@ -69,6 +78,7 @@
     <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" />
     <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_WRITE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+-->
 
     <application
         android:allowBackup="true"
@@ -78,6 +88,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- SMSReceiver is unnecessary. This ingests received SMS and forward message content
+             to the web service.
         <receiver
             android:name=".SMSReceiver"
             android:enabled="true"
@@ -86,8 +99,13 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
+        -->
 
+        <!-- Logging Activity is unecessary. It does not actually do anything and not needed
+        for the app to function.
         <activity android:name=".LoggingActivity"></activity>
+        -->
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
